@@ -10,7 +10,7 @@ export function Hero() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter mb-4">
-            Sharath Kumar A
+            Sharath Kumar
           </h1>
           <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-4">
             Full Stack Developer
@@ -22,7 +22,12 @@ export function Hero() {
           <div className="flex space-x-4 mb-8">
             {socialLinks.map((link) => (
               <Button key={link.name} variant="outline" size="icon" asChild>
-                <Link href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
+                <Link
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.name}
+                >
                   <link.icon className="h-5 w-5" />
                 </Link>
               </Button>
@@ -34,15 +39,15 @@ export function Hero() {
         </div>
         <div className="flex justify-center">
           <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-             <Image
-              src="https://placehold.co/400x400.png"
+            <Image
+              src="/profile.jpg" // Changed from "/images/profile.jpg"
               alt="Sharath Kumar A"
               width={400}
               height={400}
               priority
               className="rounded-full object-cover border-4 border-primary shadow-lg"
-              data-ai-hint="professional portrait"
             />
+
             <div className="absolute inset-0 rounded-full border-4 border-accent -rotate-6 transition-transform duration-500 hover:rotate-0"></div>
           </div>
         </div>

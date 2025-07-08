@@ -32,8 +32,9 @@ export function Header() {
             {/* You can add a command menu here if you want */}
           </div>
           <div className="hidden md:flex items-center space-x-2">
+            {/* Updated link for desktop view */}
             <Button asChild>
-              <a href="/resume.pdf" download="Sharath_Kumar_A_Resume.pdf">Download Resume</a>
+              <a href="/Sharath_Kumar_A%20CV.pdf" download="Sharath_Kumar_A_Resume.pdf">Download Resume</a>
             </Button>
             <ThemeToggle />
           </div>
@@ -62,8 +63,9 @@ export function Header() {
                     ))}
                 </nav>
                 <div className="mt-auto flex flex-col space-y-4">
+                    {/* Updated link for mobile (sheet) view */}
                     <Button asChild>
-                        <a href="/resume.pdf" download="Sharath_Kumar_A_Resume.pdf">Download Resume</a>
+                        <a href="/Sharath_Kumar_A%20CV.pdf" download="Sharath_Kumar_A_Resume.pdf">Download Resume</a>
                     </Button>
                     <ThemeToggle />
                 </div>
