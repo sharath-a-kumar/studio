@@ -24,6 +24,12 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
+// --- STEP 1: REMOVE THE IMAGE IMPORTS ---
+// import healthcareVoicemailImage from "@/assets/vvm.png";
+// import petAdoptionImage from "@/assets/pet.png";
+// import foodDeliveryImage from "@/assets/tomato.png";
+
+
 export const navigation = [
   { name: "Summary", href: "#summary" },
   { name: "Skills", href: "#skills" },
@@ -118,7 +124,8 @@ export const projects = [
     description: "Developed a Visual Voicemail solution integrated with Genesys Cloud, successfully processing over 10,000 voicemails monthly.",
     impact: "Achieved 95% transcription accuracy and ensured HIPAA compliance for sensitive healthcare data.",
     technologies: ["Genesys Cloud", "React.js", "Node.js", "MongoDB", "Speech Recognition"],
-    imageUrl: "https://placehold.co/600x400.png",
+    // --- STEP 2: USE A STRING PATH STARTING WITH '/' ---
+    imageUrl: "/vvm.png",
     aiHint: "healthcare app"
   },
   {
@@ -128,7 +135,8 @@ export const projects = [
     description: "Led full-stack development of a comprehensive pet adoption platform, facilitating over 500 successful adoptions within six months.",
     impact: "Optimized PostgreSQL queries, reducing page load times by 40% and significantly improving user engagement.",
     technologies: ["React.js", "Node.js", "PostgreSQL", "RESTful APIs"],
-    imageUrl: "https://placehold.co/600x400.png",
+    // --- STEP 2: USE A STRING PATH STARTING WITH '/' ---
+    imageUrl: "/pet.png",
     aiHint: "pet adoption"
   },
   {
@@ -138,7 +146,8 @@ export const projects = [
     description: "Created a responsive food delivery platform capable of handling 1,000+ daily orders with integrated Stripe payment processing.",
     impact: "Developed a real-time admin panel, reducing order processing time by 25% and ensuring secure payment workflows.",
     technologies: ["React.js", "Node.js", "PostgreSQL", "Stripe API", "WebSocket"],
-    imageUrl: "https://placehold.co/600x400.png",
+    // --- STEP 2: USE A STRING PATH STARTING WITH '/' ---
+    imageUrl: "/tomato.png",
     aiHint: "food delivery"
   },
 ];
