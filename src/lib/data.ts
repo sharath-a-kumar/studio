@@ -41,7 +41,7 @@ export const navigation = [
 
 export const socialLinks = [
   { name: "LinkedIn", url: "https://www.linkedin.com/in/sharath-kumar-a-b333421b7/", icon: Linkedin },
-  { name: "GitHub", url: "https://github.com/Sharath-A", icon: Github },
+  { name: "GitHub", url: "https://github.com/sharath-a-kumar", icon: Github },
   { name: "Email", url: "mailto:SharathKumar3113@gmail.com", icon: Mail },
 ];
 
