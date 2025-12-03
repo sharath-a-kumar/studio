@@ -1,57 +1,94 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
-import { MapPin } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { socialLinks } from "@/lib/data";
 
 export function Hero() {
   return (
-    <section id="hero" className="container py-20 md:py-32">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter mb-4">
-            Sharath Kumar
-          </h1>
-          <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-4">
-            Full Stack Developer
-          </h2>
-          <div className="flex items-center text-lg text-muted-foreground mb-8">
-            <MapPin className="mr-2 h-5 w-5" />
-            Bengaluru, India
+    <section className="relative flex min-h-screen flex-col justify-center px-6 py-24 md:px-12 lg:px-24">
+      <div className="container mx-auto max-w-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="space-y-8"
+        >
+          <div className="space-y-2">
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-lg font-medium text-primary md:text-xl"
+            >
+              Hello, I&apos;m
+            </motion.p>
+            <h1 className="text-5xl font-bold tracking-tight text-foreground md:text-7xl lg:text-8xl">
+              Sharath Kumar A
+            </h1>
+            <h2 className="text-3xl font-bold text-muted-foreground md:text-5xl lg:text-6xl">
+              Full Stack Developer.
+            </h2>
           </div>
-          <div className="flex space-x-4 mb-8">
-            {socialLinks.map((link) => (
-              <Button key={link.name} variant="outline" size="icon" asChild>
-                <Link
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={link.name}
-                >
-                  <link.icon className="h-5 w-5" />
-                </Link>
-              </Button>
-            ))}
-          </div>
-          <Button size="lg" asChild>
-            <Link href="#contact">Get in Touch</Link>
-          </Button>
-        </div>
-        <div className="flex justify-center">
-          <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-            <Image
-              src="/profile.jpg" // Changed from "/images/profile.jpg"
-              alt="Sharath Kumar A"
-              width={400}
-              height={400}
-              priority
-              className="rounded-full object-cover border-4 border-primary shadow-lg"
-            />
 
-            <div className="absolute inset-0 rounded-full border-4 border-accent -rotate-6 transition-transform duration-500 hover:rotate-0"></div>
-          </div>
-        </div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="max-w-2xl text-lg text-muted-foreground md:text-xl"
+          >
+            I build exceptional digital experiences. Currently, I&apos;m focused on
+            building accessible, human-centered products at{" "}
+            <span className="text-primary">Bizzhub Workspaces</span>.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="flex flex-wrap gap-4"
+          >
+            <Link
+              href="#projects"
+              className="group flex items-center gap-2 rounded-full bg-primary px-8 py-3 text-lg font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(0,255,255,0.3)]"
+            >
+              Check out my work
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              href="/Sharath_Kumar_A_Resume.pdf"
+              target="_blank"
+              className="flex items-center gap-2 rounded-full border border-input bg-background/50 px-8 py-3 text-lg font-medium text-foreground backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+            >
+              Resume
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="flex gap-6 pt-8"
+          >
+            <SocialLink href="https://github.com/sharath-a-kumar" icon={<Github className="h-6 w-6" />} />
+            <SocialLink href="https://linkedin.com/in/sharath-a-kumar" icon={<Linkedin className="h-6 w-6" />} />
+            <SocialLink href="mailto:sharathkumar.a@example.com" icon={<Mail className="h-6 w-6" />} />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
+  );
+}
+
+function SocialLink({ href, icon }: { href: string; icon: React.ReactNode }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="text-muted-foreground transition-colors hover:text-primary hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.5)]"
+    >
+      {icon}
+    </a>
   );
 }
