@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Scene } from "@/components/3d/Scene";
+import { ChatWidget } from "@/components/chat/chat-widget";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
@@ -34,6 +35,7 @@ export default function RootLayout({
              <Scene />
           </div>
           {children}
+          <ChatWidget />
           <Toaster />
         </ThemeProvider>
       </body>

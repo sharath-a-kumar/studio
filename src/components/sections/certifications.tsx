@@ -1,54 +1,52 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { certifications } from "@/lib/data";
+import { Award } from "lucide-react";
 
 export function Certifications() {
   return (
-    <section id="certifications" className="container py-20 md:py-32">
-      <div className="mb-16 text-center">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
+    <section id="certifications" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-6 md:px-12 lg:px-24">
+        
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           className="text-center mb-16"
         >
-          <span className="text-primary">Certifications</span>
-        </motion.h2>
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="mt-4 text-lg text-muted-foreground"
-        >
-          Continuous learning and professional development.
-        </motion.p>
-      </div>
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <Award className="text-primary h-8 w-8" />
+            <h2 className="text-4xl md:text-5xl font-bold text-white">
+              Certifications
+            </h2>
+          </div>
+        </motion.div>
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-        {certifications.map((cert, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-          >
-            <Card className="h-full border-white/10 bg-black/20 backdrop-blur-md transition-all hover:border-primary/50 hover:shadow-[0_0_20px_rgba(0,255,255,0.1)]">
-              <CardHeader className="flex flex-col items-center gap-4 text-center">
-                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <cert.icon className="h-6 w-6" />
-                 </div>
-                 <div>
-                  <CardTitle className="text-lg font-bold">{cert.name}</CardTitle>
-                  <CardDescription className="text-muted-foreground">{cert.issuer}</CardDescription>
-                 </div>
-              </CardHeader>
-            </Card>
-          </motion.div>
-        ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {certifications.map((cert, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group relative bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/10 hover:border-primary/50 transition-all duration-300 flex flex-col items-center text-center"
+            >
+               <div className="p-3 mb-4 rounded-full bg-gradient-to-br from-primary/20 to-purple-500/20 text-white group-hover:scale-110 transition-transform duration-300">
+                  <cert.icon size={24} />
+               </div>
+               
+               <h3 className="font-bold text-white text-lg mb-2 leading-tight group-hover:text-primary transition-colors">
+                   {cert.name}
+               </h3>
+               
+               <p className="text-sm text-muted-foreground mt-auto">
+                   {cert.issuer}
+               </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

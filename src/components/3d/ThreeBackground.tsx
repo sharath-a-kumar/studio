@@ -16,7 +16,7 @@ function Particles() {
   });
 
   return (
-    <group ref={ref} rotation={[0, 0, Math.PI / 4]}>
+    <group rotation={[0, 0, Math.PI / 4]}>
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
       <Sparkles count={500} scale={12} size={2} speed={0.4} opacity={0.5} color="#00F0FF" />
       <Sparkles count={300} scale={10} size={3} speed={0.3} opacity={0.3} color="#9D4EDD" />
@@ -39,18 +39,18 @@ function FloatingShape() {
     )
 }
 
-export function Scene() {
+export default function ThreeBackground() {
   const { theme } = useTheme();
 
   return (
-    <div className="fixed inset-0 z-[-1] pointer-events-none transition-colors duration-300">
+    <div className="fixed inset-0 -z-10 bg-background transition-colors duration-300">
       <Canvas camera={{ position: [0, 0, 1] }}>
         <Particles />
         <FloatingShape />
         <ambientLight intensity={0.5} />
       </Canvas>
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-background/0 to-background/0" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background/0 to-background/0" />
     </div>
   );
 }
