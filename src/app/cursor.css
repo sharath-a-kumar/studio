@@ -1,0 +1,195 @@
+/* Custom Cursor Styles */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+}
+
+.cursor-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #06b6d4; /* cyan-500 */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+  will-change: transform;
+}
+
+.cursor-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(6, 182, 212, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  will-change: transform, width, height, border-color, border-radius;
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, border-radius 0.3s ease, background-color 0.3s ease;
+}
+
+.cursor-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover States */
+
+/* Button/Link Hover */
+.cursor-hover-button .cursor-ring {
+  width: 70px;
+  height: 70px;
+  border-color: #a855f7; /* purple-500 */
+  background-color: rgba(168, 85, 247, 0.05);
+  animation: rotate-ring 3s linear infinite;
+}
+
+.cursor-hover-button .cursor-dot {
+  background-color: #a855f7;
+  animation: pulse-dot 1.5s infinite;
+}
+
+/* Text Hover */
+.cursor-hover-text .cursor-ring {
+  width: 4px;
+  height: 24px;
+  border-radius: 2px;
+  border-color: #67e8f9; /* cyan-300 */
+  background-color: #67e8f9;
+  opacity: 0.8;
+}
+
+/* Project Hover */
+.cursor-hover-project .cursor-ring {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px; /* Slightly squared */
+  border-color: #06b6d4;
+}
+
+.cursor-hover-project .cursor-dot {
+  background-color: transparent;
+  border: 2px solid #06b6d4;
+}
+
+/* Code Hover */
+.cursor-hover-code .cursor-ring {
+  width: 8px;
+  height: 16px;
+  border-radius: 0;
+  background-color: #84cc16; /* lime-500 */
+  border: none;
+  animation: blink 0.53s step-end infinite alternate;
+}
+
+.cursor-hover-code .cursor-dot {
+  display: none;
+}
+
+/* Input Hover */
+.cursor-hover-input .cursor-ring {
+    display: none;
+}
+
+.cursor-hover-input .cursor-dot {
+    width: 2px;
+    height: 20px;
+    border-radius: 0;
+    background-color: #06b6d4;
+    animation: blink 0.8s step-end infinite;
+}
+
+/* Click Animation - Ripple */
+.cursor-ripple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #06b6d4;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: ripple-effect 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+/* Cursor Trail Particle */
+.cursor-trail-particle {
+  position: fixed;
+  background-color: #06b6d4;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998; /* Below cursor */
+  transform: translate(-50%, -50%);
+  will-change: opacity;
+}
+
+/* Matrix Rain Character */
+.cursor-matrix-char {
+    position: fixed;
+    color: #84cc16; /* lime-500 */
+    font-family: monospace;
+    font-size: 10px;
+    font-weight: bold;
+    pointer-events: none;
+    z-index: 9997;
+    will-change: transform, opacity;
+}
+
+/* Animations */
+@keyframes rotate-ring {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes pulse-dot {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.2); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes ripple-effect {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.8;
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Mobile Disable */
+@media (hover: none) and (pointer: coarse) {
+    .custom-cursor {
+        display: none;
+    }
+    body {
+        cursor: auto !important;
+    }
+}

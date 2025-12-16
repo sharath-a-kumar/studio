@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
+import "./cursor.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Scene } from "@/components/3d/Scene";
 import { ChatWidget } from "@/components/chat/chat-widget";
+import { Cursor } from "@/components/ui/Cursor";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
@@ -35,6 +37,7 @@ export default function RootLayout({
              <Scene />
           </div>
           {children}
+          <Cursor />
           <ChatWidget />
           <Toaster />
         </ThemeProvider>

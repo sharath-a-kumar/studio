@@ -26,7 +26,7 @@ export function ProfessionalSummary() {
 
                     <p className="text-lg md:text-2xl leading-relaxed text-muted-foreground font-light max-w-4xl mx-auto">
                         Results-driven <span className="text-white font-medium">Full-Stack Developer</span> with 2+ years of experience building high-performance 
-                        web applications. Specialized in the <span className="text-primary font-medium">MERN stack</span> and <span className="text-secondary font-medium"></span>. 
+                        web applications. Specialized in the <span className="text-primary font-medium">MERN stack</span> <span className="text-secondary font-medium"></span>. 
                     </p>
                     
                     <p className="text-lg md:text-2xl leading-relaxed text-muted-foreground font-light max-w-4xl mx-auto">

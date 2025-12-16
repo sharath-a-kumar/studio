@@ -43,7 +43,7 @@ export function Hero() {
             
             <p className="max-w-xl text-lg text-muted-foreground/80 leading-relaxed">
               Architecting scalable digital solutions with a focus on exceptional user experience.
-              Specializing in the <span className="text-primary font-medium">MERN Stack</span> and <span className="text-secondary font-medium"></span>.
+              Specializing in the <span className="text-primary font-medium">MERN Stack</span> <span className="text-secondary font-medium"></span>
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
